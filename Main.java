@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.SQLOutput;
@@ -370,21 +371,16 @@ public class Main {
                 }
                 // If user wants to LOGIN
                 if (loginInput.equalsIgnoreCase("1") || loginInput.equalsIgnoreCase("LOGIN")) {
-                    /*
-                    System.out.println(USERNAME_PROMPT);
-                    username = scanner.nextLine();
-                    System.out.println(PASSWORD_PROMPT);
-                    password = scanner.nextLine();
-
-                     */
-                    username = reader.readLine();
-                    password = reader.readLine();
+                    username = JOptionPane.showInputDialog(null, USERNAME_PROMPT, "Login", JOptionPane.QUESTION_MESSAGE);
+                    password = JOptionPane.showInputDialog(null, PASSWORD_PROMPT, "Login", JOptionPane.QUESTION_MESSAGE);
+                    //username = reader.readLine();
+                    //password = reader.readLine();
                     if (checkLogIn(username, password)) {
-                        //System.out.println(LOGIN_SUCCESSFUL);
+                        JOptionPane.showMessageDialog(null, LOGIN_SUCCESSFUL, "Login", JOptionPane.INFORMATION_MESSAGE);
                         writer.println("yes");
                         loginSuccessful = true;
                     } else {
-                        System.out.println(LOGIN_FAILED);
+                        JOptionPane.showMessageDialog(null, LOGIN_FAILED, "Login", JOptionPane.INFORMATION_MESSAGE);
                         writer.println("no");
                         /*
                         System.out.println("Do you want to \n1. Sign Up\n2. Continue Log In\n3. Quit");
@@ -404,21 +400,17 @@ public class Main {
                 // NOTE: user will not be able to proceed until they provide valid input.
                 while (true) {
                     if (loginInput.equalsIgnoreCase("2") || loginInput.equalsIgnoreCase("SIGNUP")) {
-                        System.out.println(USERNAME_PROMPT);
-                        username = scanner.nextLine();
-                        System.out.println(PASSWORD_PROMPT);
-                        password = scanner.nextLine();
-                        System.out.println(CONFIRM_PASSWORD_PROMPT);
-                        confirmPassword = scanner.nextLine();
-                        System.out.println(EMAIL_PROMPT);
-                        email = scanner.nextLine();
+                        username = JOptionPane.showInputDialog(null, USERNAME_PROMPT, "Signup", JOptionPane.QUESTION_MESSAGE);
+                        password = JOptionPane.showInputDialog(null, PASSWORD_PROMPT, "Signup", JOptionPane.QUESTION_MESSAGE);
+                        confirmPassword = JOptionPane.showInputDialog(null, CONFIRM_PASSWORD_PROMPT, "Signup", JOptionPane.QUESTION_MESSAGE);
+                        email = JOptionPane.showInputDialog(null, EMAIL_PROMPT, "Signup", JOptionPane.QUESTION_MESSAGE);
                         while (!(email.contains("@"))) {
                             System.out.println("Invalid email has been entered");
                             System.out.println("Re-enter the email address: ");
                             email = scanner.nextLine();
                         }
                         if (!checkSignUp(username, password, confirmPassword, email)) {
-                            System.out.println(SIGNUP_FAILED);
+                            JOptionPane.showMessageDialog(null, SIGNUP_FAILED, "Signup", JOptionPane.INFORMATION_MESSAGE);
                             continue;
                         } else {
                             System.out.println(SIGNUP_SUCCESSFUL);
