@@ -1,0 +1,14 @@
+user,userOnePassword
+purduePete,purdueCS
+username,password
+purduePete,purdueCS1
+iPhoneUser,applePhone
+john1223334444,john1223334444
+username,password1
+user,pass123456
+purdueCS,purdueCSStudent
+username,password2
+username3,password3
+akhil,password
+abhi,akhil123
+mockUser,akhil123,akhil@purdue.edu
