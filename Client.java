@@ -75,7 +75,12 @@ public class Client extends JComponent implements Runnable {
                     r.printStackTrace();
                 }
             }
-            if (e.getSource() == signUpButton) {
+            if (e.getSource() == signUpButton || client.signingUpPasswordTwo == null) {
+                if (client.signingUpPassword == null) {
+                    JOptionPane.showMessageDialog(null , "Password column cannot be empty" ,
+                            "Error" , JOptionPane.ERROR_MESSAGE);
+                }
+
                 if (client.signingUpPassword.getText().length() >= 8) {
                     if (client.signingUpPassword.equals(client.signingUpPasswordTwo)) {
                         userLoggingInOrSigningUp = 1;
